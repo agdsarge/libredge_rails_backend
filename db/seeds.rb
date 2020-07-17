@@ -19,9 +19,9 @@ bean = User.create(username: "mr_bean", password: "password", email: "mr_b_and_t
 lk = User.create(username: "leslie_knope", password: "password", email: "leslie@pawnee.gov", country: "USA", bio: "I like JJ's waffles", rating: 1500)
 rmn = User.create(username: "richard_nixon", password: "password", email: "rmn37@whitehouse.gov", country: "USA", bio: "Sock it to me.", rating: 1500)
 
-test_game1 = Game.create(memorable_string_name: "FirstSimpleTestGame", final_score: 400)
-test_game2 = Game.create(memorable_string_name: "SecondSimpleTestGame", final_score: 400)
-test_game3 = Game.create(memorable_string_name: "ThirdSimpleTestGame", final_score: 400)
+test_game1 = Game.create(memorable_string_name: "FirstSimpleTestGame")
+test_game2 = Game.create(memorable_string_name: "SecondSimpleTestGame")
+test_game3 = Game.create(memorable_string_name: "ThirdSimpleTestGame")
 
 UserGame.create(user: mtm, game: test_game1, direction: :north)
 UserGame.create(user: bean, game: test_game1, direction: :south)
