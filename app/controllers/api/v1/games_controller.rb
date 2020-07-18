@@ -4,7 +4,7 @@ class Api::V1::GamesController < ApplicationController
     end
 
     def show
-        render json: specific_game.to_json(except: [:created_at, :updated_at], include: [{user_games: {only: :direction, include: {user: {except: [:created_at, :updated_at, :password_digest]}}}}, {messages: {only: [:user_id, :body]}}])
+        render json: specific_game.to_json(except: [:created_at, :updated_at], include: [{user_games: {only: :direction, include: {user: {except: [:created_at, :updated_at, :password_digest, :email, :bio]}}}}, {messages: {only: :body, include: {user: {only: :username}}}}])
     end
 
     private
