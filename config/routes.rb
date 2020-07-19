@@ -3,11 +3,13 @@ Rails.application.routes.draw do
     Rails.application.routes.draw do
         namespace :api do
             namespace :v1 do
-                get '/users', to: 'users#index'
+                
                 get '/games', to: 'games#index'
                 get '/games/:id', to: 'games#show'
                 post '/games', to: 'games#create'
-                
+
+                get '/users', to: 'users#index'
+                post '/users', to: 'users#create' 
 
                 get '/lobby', to: 'games#open_games'
 

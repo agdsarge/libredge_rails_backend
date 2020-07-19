@@ -27,7 +27,7 @@ class Game < ApplicationRecord
     end
 
     def incomplete
-        self.complete = false unless self.complete
+        self.completed = false unless self.completed
     end
 
 end
