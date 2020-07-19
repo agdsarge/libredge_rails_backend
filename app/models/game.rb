@@ -4,10 +4,12 @@ class Game < ApplicationRecord
     has_many :messages
     has_many :user_games
     has_many :users, through: :user_games
-    before_save :generate_string, :zero_score, :incomplete
+    after_initialize :generate_string, :zero_score, :incomplete
 
 
-
+    def self.open_games
+        self.where(completed: false).filter{|g| g.users.count < 4 }
+    end
 
     private
 
