@@ -7,6 +7,13 @@ class Api::V1::GamesController < ApplicationController
         render json: specific_game.to_json(except: [:created_at, :updated_at], include: [{user_games: {only: :direction, include: {user: {except: [:created_at, :updated_at, :password_digest, :email, :bio]}}}}, {messages: {only: :body, include: {user: {only: :username}}}}])
     end
 
+    def open_games ##move to model
+        Game.where(completed: false).filter{|g| g.users.count < 4 }
+    end
+
+    def create
+    end
+
     private
 
     def specific_game

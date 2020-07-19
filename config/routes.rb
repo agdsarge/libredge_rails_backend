@@ -6,6 +6,11 @@ Rails.application.routes.draw do
                 get '/users', to: 'users#index'
                 get '/games', to: 'games#index'
                 get '/games/:id', to: 'games#show'
+                post '/games', to: 'games#create'
+                
+
+                get '/lobby', to: 'games#open_games'
+
 
                 post '/login', to: 'auth#create'
                 get '/profile', to: 'users#profile'

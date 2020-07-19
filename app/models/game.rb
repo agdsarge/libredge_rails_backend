@@ -4,13 +4,13 @@ class Game < ApplicationRecord
     has_many :messages
     has_many :user_games
     has_many :users, through: :user_games
-    before_save :generate_string, :zero_score
+    before_save :generate_string, :zero_score, :incomplete
 
 
 
 
     private
-    
+
     def generate_string
         until self.memorable_string_name
             new_str = Word.generate
@@ -22,6 +22,10 @@ class Game < ApplicationRecord
 
     def zero_score
         self.final_score = 0 unless self.final_score
+    end
+
+    def incomplete
+        self.complete = false unless self.complete
     end
 
 end

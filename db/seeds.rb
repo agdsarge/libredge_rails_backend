@@ -19,14 +19,24 @@ bean = User.create(username: "mr_bean", password: "password", email: "mr_b_and_t
 lk = User.create(username: "leslie_knope", password: "password", email: "leslie@pawnee.gov", country: "USA", bio: "I like JJ's waffles", rating: 1500)
 rmn = User.create(username: "richard_nixon", password: "password", email: "rmn37@whitehouse.gov", country: "USA", bio: "Sock it to me.", rating: 1500)
 
-test_game1 = Game.create(memorable_string_name: "FirstSimpleTestGame")
-test_game2 = Game.create(memorable_string_name: "SecondSimpleTestGame")
-test_game3 = Game.create(memorable_string_name: "ThirdSimpleTestGame")
+test_game1 = Game.create(memorable_string_name: "FirstSimpleTestGame", completed: true, final_score: 90)
+test_game2 = Game.create(memorable_string_name: "SecondSimpleTestGame", completed:false)
+test_game3 = Game.create(memorable_string_name: "ThirdSimpleTestGame", completed: false)
 
 UserGame.create(user: mtm, game: test_game1, direction: :north)
 UserGame.create(user: bean, game: test_game1, direction: :south)
 UserGame.create(user: lk, game: test_game1, direction: :east)
 UserGame.create(user: rmn, game: test_game1, direction: :west)
+
+UserGame.create(user: mtm, game: test_game2, direction: :north)
+UserGame.create(user: bean, game: test_game2, direction: :south)
+UserGame.create(user: lk, game: test_game2, direction: :east)
+UserGame.create(user: rmn, game: test_game2, direction: :west)
+
+UserGame.create(user: mtm, game: test_game3, direction: :north)
+
+UserGame.create(user: lk, game: test_game3, direction: :east)
+UserGame.create(user: rmn, game: test_game3, direction: :west)
 
 
 mesg1 = Message.create(user: rmn, game: test_game1, body: "I am not a crook.")
